@@ -7,7 +7,7 @@ import AuthStore from "@/shared/store/auth";
 import orderService from "@/shared/service/order-service";
 import Link from "next/link";
 import convertDateToDDMMYYYY from "@/lib/convertDate";
-import RenderPhrase from "@/lib/getProductWordEnding";
+import getWordEnding from "@/lib/word_ending";
 
 const StatusProcess = () => {
   return (
@@ -59,7 +59,7 @@ const Order = () => {
   };
   const handleDelete = async (id_order: string) => {
     try {
-      await orderService.userCancel(profiles.id!,id_order);
+      await orderService.userCancel(profiles.id!, id_order);
       hadleInfoOrder();
     } catch (error) {
       console.error(error);
@@ -118,10 +118,14 @@ const Order = () => {
                 </div>
                 <div className={classes.equipmentOrderBlock}>
                   <p className={classes.equipmentOrderBlock__count}>
-                    {elother.allCount} {RenderPhrase(elother.allCount)}
+                    {getWordEnding(elother.allCount, [
+                      "товар",
+                      "товара",
+                      "товаров",
+                    ])}
                   </p>
                   <div className={classes.equipmentsList}>
-                  {Array.isArray(elother.info) &&
+                    {Array.isArray(elother.info) &&
                       elother.info.map((item, index) => (
                         <div
                           key={`${item.id_equipment}_${index}`}

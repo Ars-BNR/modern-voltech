@@ -24,6 +24,19 @@
     cursor: pointer;
 }
 
+.leftBlock,
+.topRightBlock,
+.bottomRightBlockLeft,
+.bottomRightBlockRight {
+    position: relative;
+}
+
+.block__link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
 .rightBlock {
     display: flex;
     flex-direction: column;
@@ -38,7 +51,6 @@
     display: flex;
     flex-grow: 1;
     max-width: 792px;
-    position: relative;
     border: 1px solid #cccccc;
     border-radius: 40px;
 }

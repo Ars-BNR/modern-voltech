@@ -10,6 +10,19 @@
     border: 1px solid #ccc;
     max-width: 282px;
     padding: 62px 24px 32px 24px;
+    position: relative;
+}
+
+.card__link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.card__title,
+.card__price,
+.card__btn {
+    position: relative;
 }
 
 .card__title {

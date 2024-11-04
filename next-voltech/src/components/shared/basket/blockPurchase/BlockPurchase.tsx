@@ -1,6 +1,6 @@
 import { FC, memo } from "react";
 import classes from "./BlockPurchase.module.css";
-import RenderPhrase from "@/lib/getProductWordEnding";
+import getWordEnding from "@/lib/word_ending";
 interface BlockPurchaseProps {
   totalPrice: number;
   totalQuantity: number;
@@ -16,7 +16,7 @@ const BlockPurchase: FC<BlockPurchaseProps> = ({
     <div className={classes.basketContent__yourPurchases}>
       <p className={classes.basketContent__InyourBasket}>В корзине</p>
       <p className={classes.basketContent__qauantityOfProduct}>
-        {totalQuantity} {RenderPhrase(totalQuantity)}
+        {getWordEnding(totalQuantity, ["товар", "товара", "товаров"])}
       </p>
       <div className={classes.basketContent__price}>
         <p className={classes.basketContent__totalPrice}>

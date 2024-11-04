@@ -5,8 +5,8 @@ import { IInfoOrder } from "@/types/type";
 import orderService from "@/shared/service/order-service";
 import toast from "react-hot-toast";
 import convertDateToDDMMYYYY from "@/lib/convertDate";
-import RenderPhrase from "@/lib/getProductWordEnding";
 import Link from "next/link";
+import getWordEnding from "@/lib/word_ending";
 interface OrderItemProps {
   orderInfo: IInfoOrder;
   allOrders: IInfoOrder[];
@@ -85,10 +85,10 @@ const OrderItem: FC<OrderItemProps> = ({
       </div>
       <div className={classes.equipmentOrderBlock}>
         <p className={classes.equipmentOrderBlock__count}>
-          {orderInfo.allCount} {RenderPhrase(orderInfo.allCount)}
+          {getWordEnding(orderInfo.allCount, ["товар", "товара", "товаров"])}
         </p>
         <div className={classes.equipmentsList}>
-        {Array.isArray(orderInfo.info)  &&
+          {Array.isArray(orderInfo.info) &&
             orderInfo.info.map((item) => (
               <div
                 key={item.id_equipment}

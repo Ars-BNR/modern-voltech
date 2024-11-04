@@ -112,7 +112,6 @@ export class UserService {
           HttpStatus.BAD_REQUEST,
         );
       }
-      console.log(userData, 'userData');
       const user = await this.userRepository.findOne({
         where: {
           id: userData.user.id,

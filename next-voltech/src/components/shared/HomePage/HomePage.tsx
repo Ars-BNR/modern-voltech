@@ -11,62 +11,63 @@ export const HomePage: React.FC = () => {
   return (
     <div className={classes.voltechMain}>
       <div className={classes.leftBlock}>
-        <div className={classes.block__picture}>
-          <Link href="/catalog?category=PC">
-            <p className={classes.title}>Готовые решения</p>
+        <Link className={classes.block__link} href="/catalog?category=PC">
+          <p className={classes.title}>Готовые решения</p>
+          <Image
+            src={pc}
+            alt=""
+            className={classes.leftBlock__img}
+            loading="lazy"
+          />
+        </Link>
+      </div>
+      <div className={classes.rightBlock}>
+        <div className={classes.topRightBlock}>
+          <Link
+            className={classes.block__link}
+            href="/catalog?category=keyboards"
+          >
+            <p className={classes.title}>Клавиатуры</p>
             <Image
-              src={pc}
+              src={kb}
               alt=""
-              className={classes.leftBlock__img}
+              className={classes.rightBlock__img}
               loading="lazy"
             />
           </Link>
         </div>
-      </div>
-      <div className={classes.rightBlock}>
-        <div className={classes.topRightBlock}>
-          <div className={classes.block__picture}>
-            <Link href="/catalog?category=keyboards">
-              <p className={classes.title}>Клавиатуры</p>
-              <Image
-                src={kb}
-                alt=""
-                className={classes.rightBlock__img}
-                loading="lazy"
-              />
-            </Link>
-          </div>
-        </div>
         <div className={classes.bottomRightBlock}>
           <div className={classes.bottomRightBlockLeft}>
-            <div className={classes.block__picture}>
-              <Link href="/catalog?category=monitors">
-                <p className={classes.title}>Мониторы</p>
-                <div className={classes.bottomRightBlockLeft__picture}>
-                  <Image
-                    src={mn}
-                    alt=""
-                    className={classes.bottomRightBlockLeft__img}
-                    loading="lazy"
-                  />
-                </div>
-              </Link>
-            </div>
+            <Link
+              className={classes.block__link}
+              href="/catalog?category=monitors"
+            >
+              <p className={classes.title}>Мониторы</p>
+              <div className={classes.bottomRightBlockLeft__picture}>
+                <Image
+                  src={mn}
+                  alt=""
+                  className={classes.bottomRightBlockLeft__img}
+                  loading="lazy"
+                />
+              </div>
+            </Link>
           </div>
           <div className={classes.bottomRightBlockRight}>
-            <div className={classes.block__picture}>
-              <Link href="/catalog?category=mouse">
-                <p className={classes.title}>Мыши</p>
-                <div className={classes.bottomRightBlockRight__picture}>
-                  <Image
-                    src={ms}
-                    alt=""
-                    className={classes.bottomRightBlockRight__img}
-                    loading="lazy"
-                  />
-                </div>
-              </Link>
-            </div>
+            <Link
+              className={classes.block__link}
+              href="/catalog?category=mouse"
+            >
+              <p className={classes.title}>Мыши</p>
+              <div className={classes.bottomRightBlockRight__picture}>
+                <Image
+                  src={ms}
+                  alt=""
+                  className={classes.bottomRightBlockRight__img}
+                  loading="lazy"
+                />
+              </div>
+            </Link>
           </div>
         </div>
       </div>

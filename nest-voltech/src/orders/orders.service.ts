@@ -25,7 +25,6 @@ export class OrdersService {
       id_user = +id_user;
       const status = String('Обработка');
       const id_order = orderid('key').generate();
-      console.log(id_order, 'that id_order');
       const date = getCurrentDate();
       const newOrder = await this.orderRepository.create({
         name,

@@ -43,12 +43,9 @@ export class RolesGuard implements CanActivate {
         secret: process.env.JWT_ACCESS_SECRET,
       });
       req.user = user;
-      console.log('Required roles:', requiredRoles);
-console.log('User role:', user.user.role);
       // return user.roles.some((role) => requiredRoles.includes(role.value));
-      return requiredRoles.includes(user.user.role)
+      return requiredRoles.includes(user.user.role);
     } catch (error) {
-      console.log(error);
       throw new HttpException('Нет доступа', HttpStatus.FORBIDDEN);
     }
   }

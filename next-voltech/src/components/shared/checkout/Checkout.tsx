@@ -4,12 +4,12 @@ import React from "react";
 import classes from "./Checkout.module.css";
 import TextField from "../../ui/Form/TextField";
 import Link from "next/link";
-import RenderPhrase from "@/lib/getProductWordEnding";
 import useOrderValidation from "@/shared/hooks/useOrderValidation";
 import useOrderData from "@/shared/hooks/useOrderData";
 import useCheckoutOrder from "@/shared/hooks/useCheckoutOrder";
 import useChangeDataCheckout from "@/shared/hooks/useChangeDataCheckout";
 import Loader from "@/components/ui/Loader/Loader";
+import getWordEnding from "@/lib/word_ending";
 
 const Checkout = () => {
   const { Setorder, clearBasket, order } = useOrderData();
@@ -76,7 +76,7 @@ const Checkout = () => {
         />
       </form>
       <p className={classes.Content__quantityProduct}>
-        {order.allCount} {RenderPhrase(order.allCount)}
+        {getWordEnding(order.allCount, ["товар", "товара", "товаров"])}
       </p>
       <div className={classes.Content__resultOrder}>
         <p className={classes.Content__total}>Итого: </p>

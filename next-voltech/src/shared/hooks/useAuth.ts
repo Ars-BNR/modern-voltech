@@ -9,7 +9,7 @@ const useAuth = (requiredRole: string) => {
 
   useEffect(() => {
     const checkAuth = () => {
-      if (profiles.profiles.role === requiredRole) {
+      if (profiles.user.role === requiredRole) {
         router.replace("/admin");
       } else {
         router.replace("/");
