@@ -37,8 +37,9 @@ import { JwtModule } from '@nestjs/jwt';
       database: process.env.POSTGRES_DB,
       models: [UserModel, TokenModel, EquipmentModel, OrderModel, BasketModel],
       autoLoadModels: true,
-      synchronize: false,
+      synchronize: true,
     }),
+
     JwtModule.register({
       secret: 'your-secret-key', // Замените на ваш секретный ключ
       signOptions: { expiresIn: '60s' }, // Время истечения токена

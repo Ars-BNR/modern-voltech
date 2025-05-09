@@ -1,0 +1,37 @@
+services:
+  client:
+    build:
+      context: ./next-voltech
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    environment:
+      - NEXT_PUBLIC_API_URL=http://server:7000
+      - NEXT_PUBLIC_IMG_URL=http://server:7000/img/
+
+  server:
+    build:
+      context: ./nest-voltech
+      dockerfile: Dockerfile
+    env_file:
+      - ./nest-voltech/.production.env
+    ports:
+      - "7000:7000"
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres_modern_voltech
+    image: postgres:17
+    env_file:
+      - ./nest-voltech/.production.env
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  pgdata:

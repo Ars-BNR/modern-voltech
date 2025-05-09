@@ -24,10 +24,7 @@ const CardEquipment: FC<CardEquipmentProps> = ({ elbasketData }) => {
             <div className={classes.basketBlock__equipImg}>
               <Image
                 className={classes.equipImg}
-                src={
-                  "http://localhost:7000/img/" +
-                  elbasketData.equipment.pathimg
-                }
+                src={`${process.env.NEXT_PUBLIC_IMG_URL}${elbasketData.equipment.pathimg}`}
                 alt={
                   elbasketData.equipment.brand + elbasketData.equipment.model
                 }

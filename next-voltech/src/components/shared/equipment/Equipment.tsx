@@ -80,7 +80,7 @@ const Equipment = () => {
             <div className={classes.EquipmentContent__equipmentImg}>
               <Image
                 className={classes.imgel}
-                src={"http://localhost:7000/img/" + equipment.pathimg}
+                src={`${process.env.NEXT_PUBLIC_IMG_URL}${equipment.pathimg}`}
                 alt={
                   equipment.main_info["Бренд"] + equipment.main_info["Модель"]
                 }

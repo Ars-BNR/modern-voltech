@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { UserModel } from './models/user.model';
 import { CreateUserDto, UserJWTData } from './dto/create-user.dto';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { TokenService } from 'src/token/token.service';
 import { UserResponse } from './response/user-response';
 import { Response } from 'express';

@@ -19,7 +19,7 @@ const CardList: FC<CardListProps> = ({ products, HandleAddBasket }) => {
             >
               <div key={index} className={classes.card__picture}>
                 <Image
-                  src={"http://localhost:7000/img/" + product.pathimg}
+                  src={`${process.env.NEXT_PUBLIC_IMG_URL}${product.pathimg}`}
                   alt=""
                   className={classes.card__img}
                   loading="lazy"
